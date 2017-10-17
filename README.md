@@ -17,10 +17,10 @@ npm start
 npm run server:dev:hmr
 
 # check the prod build
-```
 npm run build
 npm run server:prod
 ```
+
 ___
 
 Based on [Angular 4 Starter](https://github.com/AngularClass/angular-starter) boilerplate.
