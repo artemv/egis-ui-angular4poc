@@ -7,6 +7,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
+import {EgisUI} from '@egis/egis-ui';
+const EgisUI1 = (EgisUI as any);
 
 /**
  * App Component
@@ -46,10 +48,10 @@ import { AppState } from './app.service';
       <router-outlet></router-outlet>
     </main>
 
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+    <pre class="app-state">EgisUI.currentTimeWithMillisString(): {{ evidence }}</pre>
+    <pre class="app-state">EgisUI.guid(): {{ evidence2 }}</pre>
 
     <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
       <div>
         <a [href]="url">
           <img [src]="angularclassLogo" width="25%">
@@ -62,10 +64,17 @@ export class AppComponent implements OnInit {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
   public name = 'Angular 2 Webpack Starter';
   public url = 'https://twitter.com/AngularClass';
+  public evidence: string;
+  public evidence2: string;
 
   constructor(
     public appState: AppState
-  ) {}
+  ) {
+    console.log('EgisUI', EgisUI);
+    EgisUI1.UI.loggingIn = true;
+    this.evidence = EgisUI.currentTimeWithMillisString();
+    this.evidence2 = EgisUI1.guid();
+  }
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);

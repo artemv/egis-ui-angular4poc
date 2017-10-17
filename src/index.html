@@ -16,6 +16,7 @@
 
   <%= htmlWebpackPlugin.files.webpackManifest %>
 
+  <script type="text/javascript" src="assets/dependencies.js"></script>
   <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
   <!-- Webpack Dev Server reload -->
   <script src="/webpack-dev-server.js"></script>
