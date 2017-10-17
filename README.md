@@ -21,6 +21,8 @@ ___
 
 # Angular4 Webpack Starter [![Join Slack](https://img.shields.io/badge/slack-join-brightgreen.svg)](https://angularclass.com/slack-join) [![Join the chat at https://gitter.im/angularclass/angular-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angularclass/angular-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/artemv/egis-ui-angular4poc.svg)](https://greenkeeper.io/)
+
 
 > An Angular starter kit featuring [Angular 4](https://angular.io), [Ahead of Time Compile](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html), [Router](https://angular.io/docs/ts/latest/guide/router.html), [Forms](https://angular.io/docs/ts/latest/guide/forms.html),
 [Http](https://angular.io/docs/ts/latest/guide/server-communication.html),
