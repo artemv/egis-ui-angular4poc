@@ -8,17 +8,14 @@ git clone https://github.com/artemv/egis-ui-angular4poc
 cd egis-ui-angular4poc
 
 # install the repo with npm
-npm install
+yarn
 
-# start the server
-npm start
-
-# use Hot Module Replacement
+# start the dev server
 npm run server:dev:hmr
 
 # check the prod build
-npm run build
-npm run server:prod
+yarn run build:prod
+yarn run server:prod
 ```
 
 ![Example screenshot](docs/2017-10-18_1738.png)

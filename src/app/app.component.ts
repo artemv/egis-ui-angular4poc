@@ -7,7 +7,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
-import {EgisUI} from '@egis/egis-ui';
+import { EgisUI } from '@egis/egis-ui';
 const EgisUI1 = (EgisUI as any);
 
 /**
@@ -66,6 +66,7 @@ export class AppComponent implements OnInit {
   public url = 'https://twitter.com/AngularClass';
   public evidence: string;
   public evidence2: string;
+  public o: EgisUI.Observable;
 
   constructor(
     public appState: AppState
@@ -73,6 +74,12 @@ export class AppComponent implements OnInit {
     console.log('EgisUI', EgisUI);
     EgisUI1.UI.loggingIn = true;
     this.evidence = EgisUI.currentTimeWithMillisString();
+    this.o = new EgisUI.Observable();
+    this.o.once('check').then(([o, ...args]) => {
+      console.log('check.then', {o, args});
+    });
+    this.o.fire('check', 1, 2, 3);
+    console.log('o', this.o);
     this.evidence2 = EgisUI1.guid();
   }
 
