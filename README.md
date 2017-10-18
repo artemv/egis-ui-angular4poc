@@ -21,6 +21,7 @@ npm run build
 npm run server:prod
 ```
 
+![Example screenshot](docs/2017-10-18_1738.png)
 ___
 
 Based on [Angular 4 Starter](https://github.com/AngularClass/angular-starter) boilerplate.
