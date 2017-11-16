@@ -49,15 +49,8 @@ const EgisUI1 = (EgisUI as any);
     </main>
 
     <pre class="app-state">EgisUI.currentTimeWithMillisString(): {{ evidence }}</pre>
+    <pre class="app-state">doc.indexes: {{ doc.indexes | json }}</pre>
     <pre class="app-state">EgisUI.guid(): {{ evidence2 }}</pre>
-
-    <footer>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
-    </footer>
   `
 })
 export class AppComponent implements OnInit {
@@ -66,13 +59,13 @@ export class AppComponent implements OnInit {
   public url = 'https://twitter.com/AngularClass';
   public evidence: string;
   public evidence2: string;
+  public doc: EgisUI.PaperTrailDocument;
   public o: EgisUI.Observable;
 
   constructor(
     public appState: AppState
   ) {
     console.log('EgisUI', EgisUI);
-    EgisUI1.UI.loggingIn = true;
     this.evidence = EgisUI.currentTimeWithMillisString();
     this.o = new EgisUI.Observable();
     this.o.once('check').then(([o, ...args]) => {
@@ -81,6 +74,16 @@ export class AppComponent implements OnInit {
     this.o.fire('check', 1, 2, 3);
     console.log('o', this.o);
     this.evidence2 = EgisUI1.guid();
+    this.doc = new EgisUI.PaperTrailDocument({filename: 'lala'});
+    EgisUI.PaperTrail.pql('select * from "Signature Uploads"').then((res) => {
+      console.log('got docs:', res);
+      if (res.length > 0) {
+        EgisUI.PaperTrail.getDocument(res[0]['docId']).then((doc) => {
+          console.log('got doc', doc, doc.docId);
+          this.doc = doc;
+        });
+      }
+    });
   }
 
   public ngOnInit() {

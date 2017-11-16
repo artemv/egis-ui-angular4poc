@@ -128,9 +128,9 @@
     fs-extra "^4.0.1"
     viz.js "^1.8.0"
 
-"@egis/egis-ui@4.16.0-pre":
-  version "4.16.0-pre"
-  resolved "https://registry.yarnpkg.com/@egis/egis-ui/-/egis-ui-4.16.0-pre.tgz#afcaea65211bc1e52b864ebaa9cc9bd620ef7c4a"
+"@egis/egis-ui@4.16.1-pre":
+  version "4.16.1-pre"
+  resolved "https://registry.yarnpkg.com/@egis/egis-ui/-/egis-ui-4.16.1-pre.tgz#de02b3fe2e7d4dbb88a9bf23450106245fc5fbc6"
 
 "@types/fs-extra@^3.0.0":
   version "3.0.3"
