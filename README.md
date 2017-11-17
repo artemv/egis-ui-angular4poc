@@ -25,6 +25,10 @@ npm run browsersync -- --proxied-host=192.168.99.100
 
 # open browsersync'ed PT and log in there: http://0.0.0.0:3001/
 # open the demo at http://0.0.0.0:3001/web/angular-poc/
+
+# change smth, then rebuild
+yarn run build
+# it will be picked by browsersync automatically
 ```
 
 ![Example screenshot](docs/2017-10-18_1738.png)

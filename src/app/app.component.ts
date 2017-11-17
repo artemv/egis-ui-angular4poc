@@ -48,17 +48,19 @@ const EgisUI1 = (EgisUI as any);
       <router-outlet></router-outlet>
     </main>
 
-    <pre class="app-state">EgisUI.currentTimeWithMillisString(): {{ evidence }}</pre>
-    <pre class="app-state">doc.indexes: {{ doc.indexes | json }}</pre>
-    <pre class="app-state">EgisUI.guid(): {{ evidence2 }}</pre>
+    <pre class="app-state">
+EgisUI.currentTimeWithMillisString(): {{ timestamp }}
+doc.indexes: {{ doc.indexes | json }}
+EgisUI.guid(): {{ guid }}
+    </pre>
   `
 })
 export class AppComponent implements OnInit {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
   public name = 'Angular 2 Webpack Starter';
   public url = 'https://twitter.com/AngularClass';
-  public evidence: string;
-  public evidence2: string;
+  public timestamp: string;
+  public guid: string;
   public doc: EgisUI.PaperTrailDocument;
   public o: EgisUI.Observable;
 
@@ -66,14 +68,14 @@ export class AppComponent implements OnInit {
     public appState: AppState
   ) {
     console.log('EgisUI', EgisUI);
-    this.evidence = EgisUI.currentTimeWithMillisString();
+    this.timestamp = EgisUI.currentTimeWithMillisString();
     this.o = new EgisUI.Observable();
     this.o.once('check').then(([o, ...args]) => {
       console.log('check.then', {o, args});
     });
     this.o.fire('check', 1, 2, 3);
     console.log('o', this.o);
-    this.evidence2 = EgisUI1.guid();
+    this.guid = EgisUI1.guid();
     this.doc = new EgisUI.PaperTrailDocument({filename: 'lala'});
     EgisUI.PaperTrail.pql('select * from "Signature Uploads"').then((res) => {
       console.log('got docs:', res);
@@ -84,6 +86,8 @@ export class AppComponent implements OnInit {
         });
       }
     });
+    let entities = EgisUI.Entity.list();
+    console.log('DataSource.id:', entities.DataSource.id, entities);
   }
 
   public ngOnInit() {
