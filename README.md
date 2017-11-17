@@ -1,5 +1,5 @@
 ### Quick start
-**Make sure you have Node version >= 6.0 and NPM >= 3**
+**Make sure you have Node version >= 6.0, NPM >= 3 and yarn 0.27.5 or >= 1.3.2**
 
 PT logging in is not implemented, so this is set to work in context of existing PT session via build-tools' 
 [browsersync](https://github.com/egis/build-tools/blob/master/README.md#browsersync).
@@ -34,8 +34,10 @@ yarn run build
 ![Example screenshot](docs/2017-10-18_1738.png)
 
 ### Caveats
-EgisUI's dev mode is not supported. You can link it into this project to use latest changes but you need to build it to 
-apply them.
+* EgisUI's dev mode is not supported. You can link it into this project to use latest changes but you need to build EgisUI 
+to apply them. However you don't need to rebuild EgisUI if you only change its typescript definitions.
+* This project' dev mode is not supported. This is because we need to use it in context of PT. After code changes you 
+need to rebuild it with `yarn run build` to apply them to running instance. 
 ___
 
 Based on [Angular 4 Starter](https://gith``ub.com/AngularClass/angular-starter) boilerplate.
